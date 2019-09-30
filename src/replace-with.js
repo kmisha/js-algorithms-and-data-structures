@@ -9,9 +9,3 @@ export function replaceWithTag(parent, from, to) {
     })
     return parent
 }
-
-export function scrollTo(element, container) {
-    if(element === null || container === null) {
-        return false;
-    }
-}
