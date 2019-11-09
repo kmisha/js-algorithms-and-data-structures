@@ -1,2 +1,2 @@
-export * from './replace-with'
-export * from './linked-list'
+export * from './replace-with.js'
+export * from './linked-list.js'
