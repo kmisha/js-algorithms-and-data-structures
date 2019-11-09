@@ -12,10 +12,10 @@ jobs:
         with:
           node-version: 12.x
 #       - run: npm ci
-      - name: npm install and test
-        run: |
-          npm install
-          npm test
+      - name: npm install
+        run:  npm install
+      - name: test
+        run:  npm test
 
 #   publish-npm:
 #     needs: build
