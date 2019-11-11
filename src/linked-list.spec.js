@@ -54,4 +54,18 @@ describe('Linked list', () => {
         const result = [...list]
         expect(result).toEqual([-1, ...arr])
     })
+    it('should correct implemented has method',() => {
+        const arr = new Array(amount).fill(0).map((_, idx) => ({a: idx}))
+        arr.forEach(_ => list.add(_))
+        const first = arr[0]
+        const last  = arr[amount - 1]
+        const middle_position = Math.floor((amount) - 1 / 2)
+        const middle = arr[middle_position]
+        const wrong = {a: -1}
+
+        expect(list.has(middle)).toBe(true)
+        expect(list.has(first)).toBe(true)
+        expect(list.has(last)).toBe(true)
+        expect(list.has(wrong)).toBe(false)
+    })
 })

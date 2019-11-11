@@ -36,4 +36,13 @@ export class LinkedList {
         this.head = node
         return this
     }
+
+    has(element) {
+        let node = this.head
+        while(node && node.value !== element) {
+            node = node.next
+        }
+
+        return !!node
+    }
 }
