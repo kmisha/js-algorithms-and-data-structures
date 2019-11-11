@@ -10,6 +10,15 @@ export class LinkedList {
         this.head = null
         this.tail = null
     }
+
+    *[Symbol.iterator] () {
+        let current = this.head
+        do {
+            yield current.value
+            current = current.next
+        } while(current)
+    }
+
     add(element) {
         if (!this.head) {
             this.head = this.tail = new Node(element)
@@ -21,11 +30,10 @@ export class LinkedList {
         return this
     }
 
-    *[Symbol.iterator] () {
-        let current = this.head
-        do {
-            yield current.value
-            current = current.next
-        } while(current)
+    prepend(element) {
+        const node = new Node(element)
+        node.next = this.head
+        this.head = node
+        return this
     }
 }

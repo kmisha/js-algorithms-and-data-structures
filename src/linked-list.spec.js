@@ -2,6 +2,7 @@ import { LinkedList } from './linked-list.js';
 
 describe('Linked list', () => {
     let list = null
+    const amount = 10
 
     beforeEach(() => {
         list = new LinkedList()
@@ -34,9 +35,8 @@ describe('Linked list', () => {
         expect(result).toEqual(expectedResult)
     })
     it('should correct implemented iterator part 2',() => {
-        const amountOfNumbers = 1000000
         const expectedResult = []
-        for (let i = 0; i < amountOfNumbers; i++) {
+        for (let i = 0; i < amount; i++) {
             const obj = {a: i}
             list.add(obj)
             expectedResult.push(obj)
@@ -46,5 +46,12 @@ describe('Linked list', () => {
             result.push(i)
         }
         expect(result).toEqual(expectedResult)
+    })
+    it('should correct implemented prepend method',() => {
+        const arr = new Array(amount).fill(0).map((_, idx) => idx)
+        arr.forEach(elm => list.add(elm))
+        list.prepend(-1)
+        const result = [...list]
+        expect(result).toEqual([-1, ...arr])
     })
 })
