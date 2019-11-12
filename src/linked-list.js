@@ -3,6 +3,9 @@ class Node {
         this.value = value
         this.next = null
     }
+    toString() {
+        return this.value.toString ? this.value.toString() : JSON.stringify(this.value)
+    }
 }
 export class LinkedList {
 
@@ -44,5 +47,27 @@ export class LinkedList {
         }
 
         return !!node
+    }
+
+    delete(element) {
+        if (this.head === this.tail) return false
+        let current = this.head
+
+        if (current.value === element) {
+            this.head = current.next
+            return true
+        }
+
+        while(current.next && current.next.value !== element) current = current.next
+
+        if (current.next) {
+            if (current.next === this.tail) {
+                this.tail = current
+            }
+            current.next = current.next.next
+            return true
+        } else {
+            return false
+        }
     }
 }

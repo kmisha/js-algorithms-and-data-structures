@@ -2,7 +2,7 @@ import { LinkedList } from './linked-list.js';
 
 describe('Linked list', () => {
     let list = null
-    const amount = 10
+    const amount = 1000
 
     beforeEach(() => {
         list = new LinkedList()
@@ -67,5 +67,33 @@ describe('Linked list', () => {
         expect(list.has(first)).toBe(true)
         expect(list.has(last)).toBe(true)
         expect(list.has(wrong)).toBe(false)
+    })
+    it('should correct delete element from empty list',() => {
+        expect(list.delete({a: 1})).toBe(false)
+    })
+    it('should correct delete incorrect element from list',() => {
+        Array(amount).fill(0).forEach((_, idx) => list.add({a: idx}))
+        expect(list.delete({a: -1})).toBe(false)
+    })
+    it('should correct delete element from list',() => {
+        const arr = Array(amount).fill(0).map((_, idx) => ({a: idx}))
+        arr.forEach(elm => list.add(elm))
+        const elem = Math.floor(Math.random() * (amount -1))
+        expect(list.delete(arr[elem])).toBe(true)
+        expect(list.has(arr[elem])).toBe(false)
+    })
+    it('should correct delete last element from list',() => {
+        const arr = Array(amount).fill(0).map((_, idx) => ({a: idx}))
+        arr.forEach(elm => list.add(elm))
+        const elem = amount - 1
+        expect(list.delete(arr[elem])).toBe(true)
+        expect(list.has(arr[elem])).toBe(false)
+    })
+    it('should correct delete first element from list',() => {
+        const arr = Array(amount).fill(0).map((_, idx) => ({a: idx}))
+        arr.forEach(elm => list.add(elm))
+        const elem = 0
+        expect(list.delete(arr[elem])).toBe(true)
+        expect(list.has(arr[elem])).toBe(false)
     })
 })
