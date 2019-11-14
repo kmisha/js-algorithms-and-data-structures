@@ -70,4 +70,10 @@ export class LinkedList {
             return false
         }
     }
+
+    find(element) {
+        let current = this.head
+        while(current && current.value !== element) current = current.next
+        return current
+    }
 }

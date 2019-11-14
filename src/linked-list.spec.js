@@ -96,4 +96,32 @@ describe('Linked list', () => {
         expect(list.delete(arr[elem])).toBe(true)
         expect(list.has(arr[elem])).toBe(false)
     })
+    it('should correct find first element from list',() => {
+        const arr = Array(amount).fill(0).map((_, idx) => ({a: idx}))
+        arr.forEach(elm => list.add(elm))
+        const elem = 0
+        expect(list.find(arr[elem]).value).toEqual(arr[elem])
+    })
+    it('should correct find last element from list',() => {
+        const arr = Array(amount).fill(0).map((_, idx) => ({a: idx}))
+        arr.forEach(elm => list.add(elm))
+        const elem = amount - 1
+        expect(list.find(arr[elem]).value).toEqual(arr[elem])
+    })
+    it('should correct implement the find method',() => {
+        const arr = Array(amount).fill(0).map((_, idx) => ({a: idx}))
+        arr.forEach(elm => list.add(elm))
+        const elem = Math.floor(Math.random() * (amount))
+        expect(list.find(arr[elem]).value).toEqual(arr[elem])
+        expect(list.find(null)).toBe(null)
+    })
+    it('should correct linking together 2 elemens',() => {
+        const arr = Array(amount).fill(0).map((_, idx) => ({a: idx}))
+        arr.forEach(elm => list.add(elm))
+        const elem = Math.floor(Math.random() * (amount))
+        const first = list.find(arr[elem])
+        const second = list.find(arr[elem + 1])
+
+        expect(first.next).toEqual(second)
+    })
 })
