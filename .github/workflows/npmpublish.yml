@@ -2,7 +2,6 @@ name: dom-utils package
 
 on: push
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,35 +10,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-#       - run: npm ci
+
       - name: npm install
         run:  npm install
+      - name: npm lint
+        run:  npm run lint
       - name: test
         run:  npm test
-
-#   publish-npm:
-#     needs: build
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v1
-#       - uses: actions/setup-node@v1
-#         with:
-#           node-version: 12
-#           registry-url: https://registry.npmjs.org/
-#       - run: npm publish
-#         env:
-#           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
-#   publish-gpr:
-#     needs: build
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v1
-#       - uses: actions/setup-node@v1
-#         with:
-#           node-version: 12
-#           registry-url: https://npm.pkg.github.com/
-#           scope: '@your-github-username'
-#       - run: npm publish
-#         env:
-#           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
