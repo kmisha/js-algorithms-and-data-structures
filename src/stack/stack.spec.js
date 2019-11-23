@@ -16,7 +16,6 @@ describe('Stack', () => {
             expect(stack.pop()).toEqual(obj)
         })
     })
-
     it('should throw Stack is empty message when stack is empty', () => {
         const stack = new Stack(amount)
         expect(() => stack.pop()).toThrow()
@@ -41,5 +40,38 @@ describe('Stack', () => {
             stack.push(i)
         }
         expect(() => stack.push({})).toThrow()
+    })
+    it('should create empty stack',() => {
+        const stack = new Stack()
+        expect(stack).not.toBeNull()
+    })
+    it('should stack data to stack', () => {
+        const stack = new Stack();
+
+        stack.push(1)
+        stack.push(2)
+        stack.push(3)
+
+        expect(stack.toString()).toEqual('3,2,1')
+        expect(stack.toString(':')).toEqual('3:2:1')
+    })
+    it('should peek data from stack', () => {
+        const stack = new Stack()
+        expect(stack.peek()).toBeNull()
+
+        stack.push(1)
+        stack.push(10)
+
+        expect(stack.peek()).toBe(10)
+    })
+    it('should check if stack is empty', () => {
+        const stack = new Stack()
+        expect(stack.isEmpty()).toBeTrue()
+
+        stack.push(1)
+        expect(stack.isEmpty()).toBeFalse()
+
+        stack.pop()
+        expect(stack.isEmpty()).toBeTrue()
     })
 })

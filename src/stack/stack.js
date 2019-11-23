@@ -36,4 +36,22 @@ export class Stack {
         return value
     }
 
+    isEmpty() {
+        return !this.head
+    }
+
+    toString(separator = ',') {
+        let node = this.head, result = []
+
+        while(node) {
+            result = [...result, node.value]
+            node = node.next
+        }
+
+        return result.join(separator)
+    }
+
+    peek() {
+        return this.head ? this.head.value : this.head
+    }
 }
