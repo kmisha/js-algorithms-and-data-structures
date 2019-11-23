@@ -1,0 +1,45 @@
+import { Stack } from './stack.js';
+
+describe('Stack', () => {
+    const amount = 10000
+
+    it('should correct implement push and pop methods', () => {
+
+        const stack = new Stack(amount)
+        const expected = Array(amount).fill(0).map(() => {
+            const obj = {a: Math.floor(Math.random() * amount)}
+            stack.push(obj)
+            return obj
+        })
+
+        expected.reverse().forEach(obj => {
+            expect(stack.pop()).toEqual(obj)
+        })
+    })
+
+    it('should throw Stack is empty message when stack is empty', () => {
+        const stack = new Stack(amount)
+        expect(() => stack.pop()).toThrow()
+    })
+    it('should throw Stack is empty message when stack is empty', () => {
+        const stack = new Stack(amount)
+
+        for( let i = 0; i < amount; i++) {
+            stack.push(i)
+        }
+
+        for( let i = 0; i < amount; i++) {
+            stack.pop()
+        }
+
+
+        expect(() => stack.pop()).toThrow()
+    })
+    it('should throw Overflow stack size message when stack size is bigger then amount', () => {
+        const stack = new Stack(amount)
+        for( let i = 0; i < amount; i++) {
+            stack.push(i)
+        }
+        expect(() => stack.push({})).toThrow()
+    })
+})
