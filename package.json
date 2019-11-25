@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "private": true,
   "scripts": {
-    "test": "karma start"
+    "test": "karma start",
+    "lint": "eslint src"
   },
   "keywords": [],
   "author": "",
