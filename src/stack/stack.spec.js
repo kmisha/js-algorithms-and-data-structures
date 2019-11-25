@@ -52,8 +52,7 @@ describe('Stack', () => {
         stack.push(2)
         stack.push(3)
 
-        expect(stack.toString()).toEqual('3,2,1')
-        expect(stack.toString(':')).toEqual('3:2:1')
+        expect([...stack]).toEqual([3, 2, 1])
     })
     it('should peek data from stack', () => {
         const stack = new Stack()
