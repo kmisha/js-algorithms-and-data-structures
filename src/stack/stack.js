@@ -40,15 +40,13 @@ export class Stack {
         return !this.head
     }
 
-    toString(separator = ',') {
-        let node = this.head, result = []
-
-        while(node) {
-            result = [...result, node.value]
+    *[Symbol.iterator]() {
+        let node = this.head
+        do {
+            yield node.value
             node = node.next
         }
-
-        return result.join(separator)
+        while (node)
     }
 
     peek() {
