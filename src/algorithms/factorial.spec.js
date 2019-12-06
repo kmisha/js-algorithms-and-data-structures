@@ -1,6 +1,6 @@
 import { factorial, factorialIterable } from './algorithms.js'
 
-describe('The algorithms function', () =>{
+describe('The factorial function', () =>{
     it('call should return correct value', () => {
         expect(factorial(0)).toBe(	1);
         expect(factorial(1)).toBe(	1);
@@ -21,7 +21,7 @@ describe('The algorithms function', () =>{
     })
 })
 
-describe('The algorithms generator function', () =>{
+describe('The factorial generator function', () =>{
     it('call should return correct value', () => {
         let res = []
         for (let i of factorialIterable(10)) res.push(i)
