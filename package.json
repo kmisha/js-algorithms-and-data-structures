@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^6.6.0",
+    "eslint": "^6.7.2",
     "jasmine-core": "^3.5.0",
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
@@ -28,7 +28,8 @@
     "env": {
       "browser": true,
       "es6": true,
-      "jasmine": true
+      "jasmine": true,
+      "node": true
     },
     "extends": "eslint:recommended",
     "rules": {
