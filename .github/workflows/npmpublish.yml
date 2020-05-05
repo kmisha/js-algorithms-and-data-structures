@@ -12,7 +12,7 @@ jobs:
           node-version: 12.x
 
       - name: npm install
-        run:  npm install
+        run:  npm install && sudo apt-get update && sudo apt-get install -y libgbm-dev
       - name: npm lint
         run:  npm run lint
       - name: test
