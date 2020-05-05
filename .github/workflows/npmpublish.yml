@@ -12,8 +12,10 @@ jobs:
           node-version: 12.x
 
       - name: npm install
+        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
         run:  npm install
       - name: npm lint
         run:  npm run lint
       - name: test
+        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
         run:  npm test
