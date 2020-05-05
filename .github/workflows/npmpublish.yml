@@ -12,7 +12,7 @@ jobs:
           node-version: 12.x
 
       - name: npm install
-        run:  npm install
+        run:  npm install && sudo apt-get install xvfb
       - name: npm lint
         run:  npm run lint
       - name: test

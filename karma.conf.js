@@ -32,8 +32,7 @@ module.exports = function(config) {
     autoWatch: true,
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    // browsers: ["ChromeHeadlessCustom"],
-    browsers: ['Chrome'],
+    browsers: ["ChromeHeadlessCustom"],
     customLaunchers: {
       'ChromeHeadlessCustom': {
         base: 'ChromeHeadless',
